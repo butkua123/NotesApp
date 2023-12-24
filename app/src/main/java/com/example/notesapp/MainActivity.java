@@ -63,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button aboutButton = findViewById(R.id.aboutButton);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
+
         loadNotesFromPreferences();
         displayNotes();
     }
@@ -218,5 +227,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("NOTE_INDEX", noteIndex); // Add this line
         startActivity(intent);
     }
-
 }
