@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -72,6 +74,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button settingsButton = findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         loadNotesFromPreferences();
         displayNotes();
     }
@@ -131,6 +142,14 @@ public class MainActivity extends AppCompatActivity {
         View noteView = getLayoutInflater().inflate(R.layout.note_item, null);
         TextView titleTextView = noteView.findViewById(R.id.titleTextView);
         TextView contentTextView = noteView.findViewById(R.id.contentTextView);
+
+        int textSize = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE).getInt("textSize", 16);
+        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+        contentTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+        String textColorName = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE).getString("textColor", "Black");
+        int textColor = getColorFromString(textColorName);
+        titleTextView.setTextColor(textColor);
+        contentTextView.setTextColor(textColor);
 
         titleTextView.setText(note.getTitle());
         contentTextView.setText(note.getContent());
@@ -226,5 +245,14 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("NOTE_CONTENT", note.getContent());
         intent.putExtra("NOTE_INDEX", noteIndex); // Add this line
         startActivity(intent);
+    }
+
+    private int getColorFromString(String colorName) {
+        int colorId = getResources().getIdentifier(colorName.toLowerCase(), "color", getPackageName());
+        if (colorId != 0) {
+            return getResources().getColor(colorId);
+        } else {
+            return Color.BLACK; // Default color if not found
+        }
     }
 }

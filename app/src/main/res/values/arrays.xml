@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="text_size_options">
+        <item>14</item> <!-- Smaller Text -->
+        <item>16</item> <!-- Default Text -->
+        <item>18</item> <!-- Larger Text -->
+    </string-array>
+    <string-array name="text_color_options">
+        <item>Black</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <!-- Add more colors as needed -->
+    </string-array>
+</resources>
