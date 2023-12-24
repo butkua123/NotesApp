@@ -2,9 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corners"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+>
+
     <TextView
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
         android:text="Note Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +19,7 @@
         android:id="@+id/titleTextView"/>
 
     <TextView
+        android:layout_marginLeft="8dp"
         android:text="Content Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,10 +27,13 @@
         android:id="@+id/contentTextView"/>
 
     <ImageButton
-
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
         android:id="@+id/shareButton"
-        android:layout_width="72dp"
-        android:layout_height="41dp"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:scaleType="centerInside"
         android:src="@drawable/pngwing" />
 
 
