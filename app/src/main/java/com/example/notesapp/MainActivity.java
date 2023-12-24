@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String PREFS_NAME = "NotePrefs";
+    public static final String PREFS_NAME = "NotePrefs";
     private static final String KEY_NOTE_COUNT = "NoteCount";
 
     private LinearLayout notesContainer;
@@ -126,6 +126,14 @@ public class MainActivity extends AppCompatActivity {
         titleTextView.setText(note.getTitle());
         contentTextView.setText(note.getContent());
 
+        // Set the click listener to open the note detail when the noteView is clicked
+        noteView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNoteDetail(note);
+            }
+        });
+
         noteView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -144,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void showDeleteDialog(final Note note) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -165,9 +174,17 @@ public class MainActivity extends AppCompatActivity {
         refreshNoteViews();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshNoteViews();
+    }
+
     private void refreshNoteViews() {
-        notesContainer.removeAllViews();
-        displayNotes();
+        noteList.clear(); // Clear the existing list
+        notesContainer.removeAllViews(); // Clear the UI container
+        loadNotesFromPreferences(); // Reload notes from SharedPreferences
+        displayNotes(); // Redisplay the notes
     }
 
     private void saveNotesToPreferences() {
@@ -192,4 +209,14 @@ public class MainActivity extends AppCompatActivity {
         shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(shareIntent, "Share via"));
     }
+
+    public void openNoteDetail(Note note) {
+        int noteIndex = noteList.indexOf(note);
+        Intent intent = new Intent(MainActivity.this, NoteDetailActivity.class);
+        intent.putExtra("NOTE_TITLE", note.getTitle());
+        intent.putExtra("NOTE_CONTENT", note.getContent());
+        intent.putExtra("NOTE_INDEX", noteIndex); // Add this line
+        startActivity(intent);
+    }
+
 }
