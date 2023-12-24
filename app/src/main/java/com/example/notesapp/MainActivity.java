@@ -26,9 +26,30 @@ public class MainActivity extends AppCompatActivity {
     private List<Note> noteList; // Change to 'noteList' to match the case
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Save the current text in EditText fields
+        EditText titleEditText = findViewById(R.id.titleEditText);
+        EditText contentEditText = findViewById(R.id.contentEditText);
+        outState.putString("titleText", titleEditText.getText().toString());
+        outState.putString("contentText", contentEditText.getText().toString());
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        EditText titleEditText = findViewById(R.id.titleEditText);
+        EditText contentEditText = findViewById(R.id.contentEditText);
+
+        // Check if savedInstanceState is not null and restore saved state
+        if (savedInstanceState != null) {
+            String titleText = savedInstanceState.getString("titleText");
+            String contentText = savedInstanceState.getString("contentText");
+            titleEditText.setText(titleText);
+            contentEditText.setText(contentText);
+        }
 
         notesContainer = findViewById(R.id.notesContainer);
         Button saveButton = findViewById(R.id.saveButton);
