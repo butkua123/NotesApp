@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="16dp"
-    android:background="#4F6D7A">
+    android:background="@drawable/background2">
 
 
 
@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Utku Akdoğan"
+            android:textColor="#03AFB3"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -38,7 +39,7 @@
             android:autoLink="web"
             android:clickable="true"
             android:text="LinkedIn"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="#FFC107" />
 
         <TextView
             android:id="@+id/githubContributor1"
@@ -47,7 +48,7 @@
             android:autoLink="web"
             android:clickable="true"
             android:text="GitHub"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="#FFC107" />
 
         <TextView
             android:id="@+id/instagramContributor1"
@@ -56,7 +57,7 @@
             android:autoLink="web"
             android:clickable="true"
             android:text="Instagram"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="#FFC107" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,6 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bilgekağan Taş"
+            android:textColor="#F75C61"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -90,7 +92,7 @@
             android:autoLink="web"
             android:clickable="true"
             android:text="LinkedIn"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="#FFC107" />
 
         <TextView
             android:id="@+id/githubContributor2"
@@ -99,7 +101,7 @@
             android:autoLink="web"
             android:clickable="true"
             android:text="GitHub"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="#FFC107" />
 
         <TextView
             android:id="@+id/instagramContributor2"
@@ -108,7 +110,7 @@
             android:autoLink="web"
             android:clickable="true"
             android:text="Instagram"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="#FFC107" />
     </LinearLayout>
 
 </LinearLayout>

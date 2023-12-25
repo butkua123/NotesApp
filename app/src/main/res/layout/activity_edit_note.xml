@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#4F6D7A">
+    android:background="@drawable/background1">
 
     <EditText
         android:id="@+id/editNoteTitle"

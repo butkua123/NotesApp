@@ -1,41 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_corners"
+    android:background="@android:color/transparent"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
 >
 
-    <TextView
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Note Title"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="301dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:id="@+id/titleTextView"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_marginLeft="8dp"
-        android:text="Content Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:id="@+id/contentTextView"/>
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Note Title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <ImageButton
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:id="@+id/shareButton"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/pngwing" />
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Content Text" />
+
+    </LinearLayout>
+
+
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/pngwing" />
+
+
 
 
 
 </LinearLayout>
+
