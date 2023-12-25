@@ -28,6 +28,8 @@ public class NoteDetailActivity extends AppCompatActivity {
 
         Button editNoteButton = findViewById(R.id.editNoteButton);
         editNoteButton.setOnClickListener(new View.OnClickListener() {
+            //Aktivitede gerçekleşen tıklama olaylarını işler.
+            // Kullanıcı arayüzündeki çeşitli elemanlara yapılan tıklamalara yanıt verir.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NoteDetailActivity.this, EditNoteActivity.class);

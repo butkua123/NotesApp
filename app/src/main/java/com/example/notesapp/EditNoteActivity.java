@@ -28,6 +28,8 @@ public class EditNoteActivity extends AppCompatActivity {
         int noteIndex = getIntent().getIntExtra("NOTE_INDEX", -1); // Add this line at the beginning of onCreate
 
         saveButton.setOnClickListener(new View.OnClickListener() {
+            //Aktivitede gerçekleşen tıklama olaylarını işler.
+            // Kullanıcı arayüzündeki düzenleme elemanlarına yapılan tıklamalara yanıt verir.
             @Override
             public void onClick(View v) {
                 String updatedTitle = titleEditText.getText().toString();

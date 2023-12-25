@@ -28,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         textSizeSpinner.setAdapter(textSizeAdapter);
 
         textSizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            //Spinner'daki bir öğe seçildiğinde çağrılır. Seçilen öğeye göre işlemler gerçekleştirir.
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int textSize = Integer.parseInt(parent.getItemAtPosition(position).toString());
@@ -35,7 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putInt("textSize", textSize);
                 editor.apply();
             }
-
+            //Spinner'da hiçbir öğe seçilmediğinde çağrılır. Bu durumda yapılabilecek işlemleri tanımlar.
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }

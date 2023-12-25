@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private LinearLayout notesContainer;
     private List<Note> noteList; // Change to 'noteList' to match the case
-
+    //Aktivitenin durumunu kaydeder.
+    // Uygulama yeniden başlatıldığında veya durum değişikliği olduğunda bu durumu geri yükler.
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -163,6 +164,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         noteView.setOnLongClickListener(new View.OnLongClickListener() {
+            //Uzun tıklama olaylarını işler.
+            // Genellikle notların uzun süreli tıklanması gibi durumlarda kullanılır.
             @Override
             public boolean onLongClick(View v) {
                 showDeleteDialog(note);
@@ -228,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
 
     }
-
+    //Bir notun başlığını ve içeriğini paylaşmaya olanak tanır.
     public void shareNote(String title, String content) {
         String shareBody = title + "\n" + content;
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -237,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
         shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(shareIntent, "Share via"));
     }
-
+    //Bir notun detaylarını gösteren aktiviteyi açar.
     public void openNoteDetail(Note note) {
         int noteIndex = noteList.indexOf(note);
         Intent intent = new Intent(MainActivity.this, NoteDetailActivity.class);
@@ -246,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("NOTE_INDEX", noteIndex); // Add this line
         startActivity(intent);
     }
-
+    //
     private int getColorFromString(String colorName) {
         int colorId = getResources().getIdentifier(colorName.toLowerCase(), "color", getPackageName());
         if (colorId != 0) {
